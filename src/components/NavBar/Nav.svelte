@@ -1,5 +1,5 @@
 <script>
-	import SearchBar from './serach_bar.svelte';
+	import SearchBar from './search_bar.svelte';
 	import Logo from './logo.svelte';
 </script>
 
