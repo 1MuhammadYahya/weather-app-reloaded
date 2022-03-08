@@ -1,5 +1,13 @@
 <script>
 	import Nav from '../components/NavBar/Nav.svelte'
+	import { initialize } from './index.ts';
+	import { weatherData } from '../store';
+
+	initialize();
+
+	let weather;
+
+	weatherData.subscribe( data => { weather = data } )
 </script>
 
 <main>
