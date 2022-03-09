@@ -1,5 +1,6 @@
 <script>
 	import Nav from '../components/NavBar/Nav.svelte'
+	import Widgets from '../components/Widgets/widgets.svelte'
 	import { initialize } from './index.ts';
 	import { weatherData } from '../store';
 
@@ -12,6 +13,7 @@
 
 <main>
 	<Nav/>
+	<Widgets/>
 	<footer> <p> Powered by <a href='https://www.weatherapi.com'> Weatherapi.com </a> </p> </footer>
 </main>
 
