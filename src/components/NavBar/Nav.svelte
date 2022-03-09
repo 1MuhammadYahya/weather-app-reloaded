@@ -12,12 +12,11 @@
 	main {
       margin: 0;
 			width: 100vw;
-      position: absolute;
 			top: 0;
       left: 0;
 			padding: 8px;
 			height: 36px;
-			background-color: var(--bg-color);
+			background: rgba( 224, 224, 224, 30% );
 			color: white;
 			box-shadow: var(--box-shadow);
 			display: flex;
