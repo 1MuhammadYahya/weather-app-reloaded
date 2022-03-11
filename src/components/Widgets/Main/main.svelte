@@ -1,65 +1,76 @@
 <script>
 	export let data = {};
 
-	let city, url;
+	let city, url, curr, innerWidth;
 
 	function update() {
 		let location = data.location;
 		city = `${location.name}, ${location.region}, ${location.country}`
 
 		url = (data.current.condition.icon).replaceAll('64', '128');
+		curr = data.current;
 	}
 
 	$:data && update();
 </script>
 
+<svelte:window bind:innerWidth />
+
 <main>
-	<h2> { city } </h2>
+	<h2 style='opacity: .7'> {city} </h2>
 	<div id='wrapper'>
-		<img src={url} alt={data.current.condition.code} width='128px' height='auto'>
+		<div id='img'>
+			<img alt={ data.current.condition.text } height='150px' width='150px' src={ url }>
+			<h1> { innerWidth > 765 ? curr.temp_c : `Temperature : ${curr.temp_c}` }&deg;C </h1>
+		</div>
 		<div id='details'>
-			<div class='container'>
-				<span> <h4> Temperature </h4> <h4> {data.current.temp_c}&deg;C </h4> </span>
-				<span> <h4> Min/ Max </h4> <h4> 10&deg;C </h4> </span>
-				<span> <h4> Min/ Max </h4> <h4> 10&deg;C </h4> </span>
-				<span> <h4> Min/ Max </h4> <h4> 10&deg;C </h4> </span>
+			<div class='containers'>
+				<span> <h4> Feels Like : </h4> <h4> { curr.feelslike_c }&deg;C </h4> </span>
+				<span> <h4> Condition : </h4> <h4> { curr.condition.text } </h4> </span>
+				<span> <h4> Wind Speed : </h4> <h4> { curr.wind_kph } kmph </h4> </span>
+				<span> <h4> Will it Rain : </h4> <h4> { curr.precip_mm > 0 ? 'Yes' : 'No' } </h4> </span>
 			</div>
-			<div class='container'>
-				<span> <h4> Min/ Max </h4> <h4> 10&deg;C </h4> </span>
-				<span> <h4> Min/ Max </h4> <h4> 10&deg;C </h4> </span>
-				<span> <h4> Min/ Max </h4> <h4> 10&deg;C </h4> </span>
-				<span> <h4> Min/ Max </h4> <h4> 10&deg;C </h4> </span>
+			<div class='containers'>
+				<span> <h4> Pressure : </h4> <h4> { curr.pressure_mb } mb </h4> </span>
+				<span> <h4> Visibility : </h4> <h4> { curr.vis_km } KM </h4> </span>
+				<span> <h4> Humidity : </h4> <h4> { curr.humidity } % </h4> </span>
+				<span> <h4> UV index : </h4> <h4> { curr.uv } of 11 </h4> </span>
 			</div>
 		</div>
 	</div>
 </main>
 
 <style>
+	main, .containers { width: 100%; }
 
-	#details { width: 60% }
+  span { justify-content: space-between; }
 
-  span { padding-top: 10px }
+	h4 { margin: 0 20px; text-align: center; }
 
-	span:nth-child(3) { color: black }
+	h1 { margin: 0 20px 10px 20px; opacity: .6; }
 
-  h4 { margin: 0; width: 50%; text-align: end }
+	main, #details, #wrapper, #img { align-items: center }
 
-  main { flex-direction: column; }
+	main, span, .containers, #wrapper, #details, #img { display: flex; }
 
-  #wrapper, main { align-items: center; }
+	main, .containers, #wrapper, #details, #img { flex-direction: column; }
 
-  #details ,#wrapper, main, span { display: flex }
-
-	#wrapper { width: 100%; justify-content: inherit; margin-top: 10px }
-
-	.container { width: 50%; }
-	main {
+	#wrapper {
 			box-shadow: var(--box-shadow);
-			margin: 20px 15px 20px 15px;
-			padding: 15px;
-			border-radius: 15px;
-			justify-content: center;
+			border-radius: 20px;
+			padding: 20px;
 	}
 
-	@media (min-width: 1100px) { img { margin-right: 10px } }
+	@media ( min-width: 600px ) {
+			span { width: 90% }
+			#wrapper { width: 85vw }
+			.containers { align-items: center; }
+			h4 { margin: 0; width: fit-content }
+			#details { flex-direction: row; width: 100%; }
+	}
+
+	@media ( min-width: 765px ) {
+			#wrapper { flex-direction: row; }
+			#details { flex-direction: column; }
+	}
 </style>
