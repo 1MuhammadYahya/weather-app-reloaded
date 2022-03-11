@@ -76,6 +76,7 @@
 			width: 80vw;
 			max-width: var(--max-width);
 			background-color: var(--bg-color);
+			z-index: 1;
 	}
 
 	main {

@@ -20,6 +20,7 @@
 			border-bottom: 1px dashed var(--main-font-color);
 			width: 90%;
 			text-align: center;
+			background-color: var(--bg-color);
 	}
 	h3 {
 			margin: 0;
