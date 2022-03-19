@@ -35,12 +35,15 @@
 			overflow-x: hidden;
 	}
 	p {
-			position: absolute;
+			position: relative;
+			width: 100vw;
 			bottom: 0;
-			right: 10px;
+			text-align: end;
 			font-size: 14px;
 			font-weight: 200;
 			color: var(--main-font-color);
+			margin: 10px;
+			right: 20px;
 	}
 
 	a { color: var(--main-font-color); font-weight: 400 }

@@ -17,11 +17,10 @@
 <svelte:window bind:innerWidth />
 
 <main>
-	<h2 style='opacity: .7'> {city} </h2>
 	<div id='wrapper'>
 		<div id='img'>
 			<img alt={ data.current.condition.text } height='150px' width='150px' src={ url }>
-			<h1> { innerWidth > 765 ? curr.temp_c : `Temperature : ${curr.temp_c}` }&deg;C </h1>
+			<h1> { (innerWidth > 765 || innerWidth < 380) ? curr.temp_c : `Temperature : ${curr.temp_c}` }&deg;C </h1>
 		</div>
 		<div id='details'>
 			<div class='containers'>
@@ -41,11 +40,13 @@
 </main>
 
 <style>
-	main, .containers { width: 100%; }
+	#wrapper { width: 80% }
 
   span { justify-content: space-between; }
 
 	h4 { margin: 0 20px; text-align: center; }
+
+	main, .containers, #details { width: 100%; }
 
 	h1 { margin: 0 20px 10px 20px; opacity: .6; }
 
@@ -70,7 +71,14 @@
 	}
 
 	@media ( min-width: 765px ) {
-			#wrapper { flex-direction: row; }
-			#details { flex-direction: column; }
+			h4 { margin: 1px }
+			#details { flex-direction: column; width: 50% }
+			#wrapper { flex-direction: row; justify-content: space-evenly }
+	}
+
+	@media ( min-width: 1000px ) {
+			#details { width: 100%; }
+			main { width: 350px; margin: 0 30px; }
+			#wrapper { width: 350px; flex-direction: column; padding: 10px 0 }
 	}
 </style>
