@@ -6,6 +6,7 @@
 	/* Custom Widgets */
 	import Main from './Main/main.svelte'
 	import Hourly from './Hourly/Hourly.svelte'
+	import Today from './Today/Today.svelte';
 
 	/* Store dependent Variables */
 	let data;
@@ -21,28 +22,34 @@
 	/* This function updates the data to be inline with the updated weather data */
 	function update() {
 		let location = data.location;
-		weather = { 'main': { 'alerts': data.alerts, 'current': data.current, 'location': location }, 'hourly': data.forecast.forecastday[0].hour }
+
+		weather = { 'main': { 'alerts': data.alerts, 'current': data.current, 'location': location }, 'forecast': data.forecast.forecastday[0] }
+
 		city = `${location.name}, ${location.region}, ${location.country}`;
 	}
 
+	/* Updating the variables every time the data is updated */
 	$:data && update();
 </script>
 
 <main>
-	<h2 style='opacity: .7'> { city } </h2>
-	<div>
-		<Main data={ weather.main }/>
-		<Hourly data={ weather.hourly } />
+	<h1> { city } </h1>
+	<div class='container'>
+			<Main data={ weather.main }/>
+			<Hourly data={ weather.forecast.hour } />
+	</div>
+	<div class='container'>
+		<Today data={ [weather.forecast.day, weather.forecast.astro, city] } />
 	</div>
 </main>
 
 <style>
-	h2 { opacity: .7; text-align: center; }
-	div {
+	h1 { opacity: .5; text-align: center; font-size: 28px }
+	.container {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 	}
 
-	@media ( min-width: 1000px ) { div { flex-direction: row; } }
+	@media ( min-width: 1000px ) { .container { flex-direction: row; } }
 </style>

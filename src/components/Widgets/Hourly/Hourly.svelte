@@ -2,16 +2,11 @@
 	/* This variable stores the hourly weather data i.e. 24 hours */
 	export let data;
 
-	/* Helper variables */
-	let innerWidth;
-
 	/* custom widgets */
 	import Hourly from './Hourly_Item.svelte'
 </script>
 
-<svelte:window bind:innerWidth />
-
-{#if innerWidth < 1000 } <h3>Hourly Data</h3> {/if}
+<h2>Hourly Data</h2>
 <main>
 	<div>
 		{#each data as hour}
@@ -23,7 +18,14 @@
 <style>
 	div, main { display: flex; }
 
-  h3 { text-align: center; opacity: .3; margin-bottom: 0; }
+	div { height: 400px; }
+
+  h2 {
+			opacity: .3;
+      display: block;
+			margin-bottom: 0;
+      text-align: center;
+  }
 
   main {
 			overflow-x: auto;
@@ -32,5 +34,9 @@
 			flex-direction: column;
 	}
 
-	@media ( min-width: 1000px ) { main { margin-top: 0; margin-right: 30px; } div { height: 397px; } }
+	@media ( min-width: 1000px ) {
+			h2 { display: none; }
+      div { height: 397px; }
+			main { margin-top: 0; margin-right: 30px; }
+	}
 </style>

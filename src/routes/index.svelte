@@ -14,19 +14,15 @@
 <main>
 	<Nav/>
 	<Widgets/>
-	<footer> <p> Powered by <a href='https://www.weatherapi.com'> Weatherapi.com </a> </p> </footer>
 </main>
+<p> Powered by <a href='https://www.weatherapi.com'> Weatherapi.com </a> </p>
 
 <style>
-	:global(:root){
-  	--bg-color: #e0e0e0;
-		--box-shadow: 0px 0px 16px 4px rgba(0,0,0,0.1);
-		--main-font-color: rgb(0, 0, 40);
-		--max-width: 550px;
-	}
+  main, p { position: absolute; margin: 0; }
+
+  a { color: var(--main-font-color); font-weight: 400 }
+
 	main {
-			margin: 0;
-			position: absolute;
 			top: 0;
 			left: 0;
 			background-color: var(--bg-color);
@@ -35,18 +31,25 @@
 			overflow-x: hidden;
 	}
 	p {
-			position: relative;
-			width: 100vw;
 			bottom: 0;
+			right: 10px;
 			text-align: end;
 			font-size: 14px;
 			font-weight: 200;
+      position: absolute;
+			padding: 0 5px 5px;
+      border-radius: 10px 0 0;
+      box-shadow: var(--box-shadow);
 			color: var(--main-font-color);
-			margin: 10px;
-			right: 20px;
+			background-color: var(--bg-color);
 	}
 
-	a { color: var(--main-font-color); font-weight: 400 }
+  :global(:root){
+      --bg-color: #e0e0e0;
+      --box-shadow: 0px 0px 16px 4px rgba(0,0,0,0.1);
+      --main-font-color: rgb(0, 0, 40);
+      --max-width: 550px;
+  }
 
 	:global(h1, h2, h3, h4, h5, h6) {	font-family: 'Dosis', sans-serif; color: var(--main-font-color)	}
 	:global(h1) {	opacity: .7; }
