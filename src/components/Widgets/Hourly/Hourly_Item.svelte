@@ -1,8 +1,9 @@
 <script>
+	/* External varaibles */
 	export let data;
 
 	/* local variables */
-	let url, hour, time;
+	let url, hour, time, main;
 
 	function update() {
 		/* Replacing the 64x64 pixel image for the higher quality 128x128 pixel condition image. */
@@ -14,13 +15,13 @@
 	}
 
 	/* Updating variables whenever the data changes */
-	$: data && update();
+	$:data && update();
 </script>
 
 <!-- item starts here -->
-<main>
+<main style={ time % 3 === 0 ? 'background-color : rgba( 255, 255, 255, .2 )' : "" } bind:this={main}>
 	<!-- Displays the time -->
-	<h5> { hour } </h5>
+	<h3> { hour } </h3>
 
 	<!-- Displays the current weather condition icon -->
 	<img src={ url } alt={ data.condition.text } height='90px' width='90px'>
@@ -54,34 +55,34 @@
 <!-- item ends here -->
 
 <style>
-	h1, h5, h4 { margin: 0 }
+	h1, h3, h4 { margin: 0 }
 
-	h5 { width: max-content; }
+	h3 { width: max-content; }
 
 	span, main { display: flex}
 
 	span > h4 { margin-top: 0 }
 
-  #item { height: 100%; width: 140%; }
+	#item { height: 100%; width: 140%; }
 
-  h1 { text-align: center; opacity: .6; }
+  	h1 { text-align: center; opacity: .6; }
 
-  span { justify-content: space-between; }
+  	span { justify-content: space-between; }
 
-  #details {
+  	#details {
 		height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    	display: flex;
+    	flex-direction: column;
+    	justify-content: space-evenly;
 	}
 
 	main {
-			box-shadow: var(--box-shadow);
-      margin: 5px 15px 15px;
-      border-radius: 20px;
-      padding: 10px 40px 40px;
-      flex-direction: column;
-			align-items: center;
-			width: 250px;
+		box-shadow: 0 0 16px 4px rgba(0,0,0, .05);
+        margin: 5px 15px 15px;
+        border-radius: 20px;
+        padding: 10px 40px 40px;
+        flex-direction: column;
+		align-items: center;
+		width: 250px;
 	}
 </style>

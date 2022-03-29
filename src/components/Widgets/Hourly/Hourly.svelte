@@ -4,6 +4,7 @@
 
 	/* custom widgets */
 	import Hourly from './Hourly_Item.svelte'
+
 </script>
 
 <h2>Hourly Data</h2>
@@ -20,23 +21,23 @@
 
 	div { height: 400px; }
 
-  h2 {
-			opacity: .3;
-      display: block;
+  	h2 {
+	  	opacity: .3;
+      	display: block;
 			margin-bottom: 0;
-      text-align: center;
-  }
+    	text-align: center;
+  	}
 
-  main {
-			overflow-x: auto;
-			width: 88%;
-			margin-top: 20px;
-			flex-direction: column;
+	main {
+		overflow-x: scroll;
+		width: 88%;
+		margin-top: 20px;
+		flex-direction: column;
 	}
 
 	@media ( min-width: 1000px ) {
-			h2 { display: none; }
-      div { height: 397px; }
-			main { margin-top: 0; margin-right: 30px; }
+		h2 { display: none; }
+    	div { height: 397px; }
+		main { margin-top: 0; margin-right: 30px; }
 	}
 </style>

@@ -6,7 +6,7 @@
 	import halfred from 'halfred'
 
 	import Item from './search_item.svelte';
-	import { updateData } from './search_bar';
+	import { updateData } from './search_bar.ts';
 
 	let city, cityList = [ '', '', '', '', '' ];
 

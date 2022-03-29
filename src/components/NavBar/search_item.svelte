@@ -1,5 +1,6 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
+	import { fade } from 'svelte/transition'
 
 	const dispatch = createEventDispatcher();
 
@@ -11,7 +12,9 @@
 </script>
 
 <main on:click={collapse}>
-	<h3 on:click={collapse}>{city}</h3>
+	{#key city}
+		<h3 on:click={collapse} in:fade >{city}</h3>
+	{/key}
 </main>
 
 <style>

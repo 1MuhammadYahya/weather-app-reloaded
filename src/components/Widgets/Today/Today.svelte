@@ -71,11 +71,11 @@
     #container { flex-direction: row; width: 100%; justify-content: space-around; }
 
     #wrapper {
-        box-shadow: 7px 7px 14px #cccccc, -7px -7px 14px #f4f4f4;
+        box-shadow: var(--box-shadow);
         border-radius: 20px;
         height: fit-content;
         width: calc( 100vw - 105px );
-        margin: 35px;
+        margin: 40px;
         color: rgba( 0, 0, 50, .7);
         padding: 0 20px 20px;
         align-items: center;

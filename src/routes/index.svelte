@@ -4,7 +4,9 @@
 	import { initialize } from './index.ts';
 	import { weatherData } from '../store';
 
-	initialize();
+	import { beforeUpdate } from 'svelte'
+
+	beforeUpdate(() => { initialize() } );
 
 	let weather;
 
@@ -15,7 +17,7 @@
 	<Nav/>
 	<Widgets/>
 </main>
-<p> Powered by <a href='https://www.weatherapi.com'> Weatherapi.com </a> </p>
+<p> Powered by <a href='https://www.weatherapi.com' target="_blank" rel="noopener norefferer" > Weatherapi.com </a> </p>
 
 <style>
   main, p { position: absolute; margin: 0; }

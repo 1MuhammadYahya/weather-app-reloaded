@@ -33,7 +33,7 @@
 			<img alt={ curr.condition.text } height='150px' width='150px' src={ url }>
 
 			<!-- Appending or removing 'temperature' from the heading depending on the screen's width -->
-			<h1> { (innerWidth > 765 || innerWidth < 380) ? curr.temp_c : `Temperature : ${curr.temp_c}` }&deg;C </h1>
+			<h1> { (innerWidth > 764 || innerWidth < 390) ? curr.temp_c : `Temperature : ${curr.temp_c}` }&deg;C </h1>
 
 		</div>
 
@@ -70,7 +70,7 @@
 </main>
 
 <style>
-  span { justify-content: space-between; }
+	span { justify-content: space-between; }
 
 	h4 { margin: 0 20px; text-align: center; }
 
@@ -85,29 +85,29 @@
 	main, .containers, #wrapper, #details, #img { flex-direction: column; }
 
 	#wrapper {
-      width: 80%;
-			padding: 20px;
-      border-radius: 20px;
-      box-shadow: var(--box-shadow);
+      	width: 80%;
+		padding: 20px;
+      	border-radius: 20px;
+      	box-shadow: var(--box-shadow);
 	}
 
 	@media ( min-width: 600px ) {
-			span { width: 90% }
-			#wrapper { width: 85vw }
-			.containers { align-items: center; }
-			h4 { margin: 0; width: fit-content }
-			#details { flex-direction: row; width: 100%; }
+		span { width: 90% }
+		#wrapper { width: 85vw }
+		.containers { align-items: center; }
+		h4 { margin: 0; width: fit-content }
+		#details { flex-direction: row; width: 100%; }
 	}
 
 	@media ( min-width: 765px ) {
-			h4 { margin: 1px }
-			#details { flex-direction: column; width: 50% }
-			#wrapper { flex-direction: row; justify-content: space-evenly }
+		h4 { margin: 1px }
+		#details { flex-direction: column; width: 50% }
+		#wrapper { flex-direction: row; justify-content: space-evenly }
 	}
 
 	@media ( min-width: 1000px ) {
-			#details { width: 100%; }
-			main { width: 350px; margin: 0 30px; }
-			#wrapper { width: 350px; flex-direction: column; padding: 10px 0 }
+		#details { width: 100%; }
+		main { width: 350px; margin: 0 30px 0 40px; }
+		#wrapper { width: 350px; flex-direction: column; padding: 10px 0 }
 	}
 </style>
