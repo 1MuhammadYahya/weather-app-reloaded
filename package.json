@@ -2,7 +2,7 @@
   "name": "weather-app-reloaded",
   "version": "0.0.1",
   "scripts": {
-    "start": "npm install halfred",
+    "start": "node .svelte-kit/runtime/server/index.js",
     "dev": "svelte-kit dev --host",
     "build": "svelte-kit build",
     "package": "svelte-kit package",
