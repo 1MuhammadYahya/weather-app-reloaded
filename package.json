@@ -36,5 +36,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "halfred": "^2.0.0"
+  },
+  "engines" : {
+    "node": "17.8.0"
   }
 }
