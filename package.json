@@ -2,7 +2,7 @@
   "name": "weather-app-reloaded",
   "version": "0.5",
   "scripts": {
-    "start": "svelte-kit start",
+    "start": "node build/index.js",
     "dev": "svelte-kit dev --host",
     "build": "svelte-kit build",
     "package": "svelte-kit package",
