@@ -8,7 +8,11 @@
 	import Item from './search_item.svelte';
 	import { updateData } from './search_bar.ts';
 
-	let city, cityList = [ '', '', '', '', '' ];
+	let city, cityList = [ 'Islamabad, Islāmābād, Pakistan',
+			      'Karachi, Sindh, Pakistan',
+			      'Lahore, Punjab, Pakistan',
+			      'Quetta, Balochistān, Pakistan',
+			      'Srinagar, IIOJK' ];
 
 	/* This makes the autocomplete items either visible or not visible */
 	let visible = false;
