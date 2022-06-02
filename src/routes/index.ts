@@ -13,7 +13,6 @@ export async function initialize() {
 }
 
 export async function getWeather( cityName ) {
-	console.log('Hullo')
 	const url = `https://api.weatherapi.com/v1/forecast.json?key=${weatherApiKey}&q=${cityName}&days=3&aqi=yes&alerts=yes`,
 		weatherRes = (await (await fetch(url)).json());
 	weatherData.set(weatherRes)
