@@ -33,8 +33,7 @@
                 {#if day === (new Date).getDate()}
                     Today
                 {:else}
-                    { day }
-                    <sup>
+                    { day }<sup>
                         {#if day === 1}st
                         {:else if day === 2}nd
                         {:else if day === 3}rd
