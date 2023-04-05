@@ -1,5 +1,5 @@
-const ipLookupKey = 'get yours at ipinfodb.com'
-const weatherApiKey = 'get yours at weatherapi.com';
+const ipLookupKey = 'd7ebff72ce731bb6c05b29d386634078352eceb49a2c0271f133ba13a46da66c'
+const weatherApiKey = 'ab15d6963bbd40edbf1142543220803';
 
 import { weatherData } from '../store';
 
